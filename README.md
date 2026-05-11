@@ -21,7 +21,7 @@ El sistema de seguridad vehicular es una aplicación web desarrollada con React 
 
 Se implementaron tres patrones Memento, Factory Method y Facade, junto con la arquitectura MVC como estructura base, Cada patrón cumple una función específica: Memento permite guardar y restaurar configuraciones anteriores, Factory Method facilita la creación de perfiles de seguridad predefinidos, y Facade actúa como punto de acceso unificado hacia los distintos subsistemas del vehículo.
 
-#Justificacion del Uso de los patrones
+## Justificacion del Uso de los patrones
 
 Prototype (Patrón Creacional) 
 
@@ -51,7 +51,7 @@ View: componentes visuales e interfaz gráfica.
 Controller: control de eventos y comunicación entre vistas y modelos.
 Además, MVC facilita la integración de todos los patrones implementados, ya que cada uno puede ubicarse en una capa específica sin afectar directamente a las demás.
 
-#Compatibilidad Entre los Patrones
+## Compatibilidad Entre los Patrones
 
 Los patrones seleccionados presentan una alta compatibilidad debido a que cada uno resuelve un problema distinto dentro del sistema sin generar conflictos entre sí.
 La interacción entre los patrones funciona de la siguiente manera:
