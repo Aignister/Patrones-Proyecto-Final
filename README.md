@@ -27,10 +27,10 @@ Prototype (Patrón Creacional)
 
 El patrón Prototype fue utilizado para la creación y duplicación de configuraciones de seguridad del vehículo. Este patrón permite generar nuevos objetos a partir de la clonación de configuraciones existentes, evitando la necesidad de construir cada configuración manualmente desde cero. 
 Además, Prototype se integra correctamente con el resto de patrones, ya que las configuraciones clonadas pueden posteriormente ser almacenadas mediante Memento y administradas por el Facade.
+
 Facade (Patrón Estructural) 
 
 El patrón Facade fue seleccionado para simplificar la interacción entre la interfaz de usuario y los distintos subsistemas de seguridad del vehículo. 
-
 Sin el patrón Facade, la interfaz tendría que comunicarse directamente con cada subsistema, generando alto acoplamiento y mayor complejidad.
 Para resolver este problema se implementó una fachada central encargada de coordinar todas las operaciones del sistema de seguridad. De esta manera, la interfaz solo interactúa con una única clase responsable de ejecutar acciones complejas internamente.
 El patrón Facade también mejora la compatibilidad entre patrones, ya que centraliza la comunicación con los objetos creados mediante Prototype y los estados administrados por Memento. 
@@ -44,10 +44,9 @@ Command (Patrón de Comportamiento Adicional)
 
 El patrón Command fue utilizado para encapsular acciones del sistema como comandos independientes. Esto permitió separar las solicitudes realizadas por el usuario de la lógica real de ejecución. 
 Command complementa correctamente al patrón Facade, ya que los comandos pueden utilizar la fachada como punto central de acceso al sistema.
+
 Arquitectura MVC
-
 La arquitectura MVC (Model-View-Controller) fue utilizada para organizar el sistema de manera estructurada y modular.
-
 La separación de responsabilidades permitió dividir el proyecto en:
 Model: manejo de datos, patrones y lógica del sistema.
 View: componentes visuales e interfaz gráfica.
