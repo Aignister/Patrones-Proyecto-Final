@@ -1,8 +1,6 @@
 import { Copy } from "lucide-react";
 import { USER_COLORS } from "../data/users";
 
-// UserSelector recibe opcionalmente onCopyConfig para activar la acción
-// Prototype: clonar el estado activo del usuario actual hacia otro.
 export function UserSelector({ users, activeUserId, onSelect, onCopyConfig }) {
   return (
     <div className="flex flex-col gap-2">
@@ -12,7 +10,6 @@ export function UserSelector({ users, activeUserId, onSelect, onCopyConfig }) {
 
         return (
           <div key={user.id} className="flex items-center gap-1.5">
-            {/* ── Botón de selección de usuario ───────────────────── */}
             <button
               onClick={() => onSelect(user.id)}
               className={`
@@ -51,8 +48,6 @@ export function UserSelector({ users, activeUserId, onSelect, onCopyConfig }) {
               )}
             </button>
 
-            {/* ── Botón Prototype: copiar config al usuario destino ── */}
-            {/* Solo visible en usuarios no activos cuando hay un handler */}
             {!isActive && onCopyConfig && (
               <button
                 onClick={() => onCopyConfig(user.id)}

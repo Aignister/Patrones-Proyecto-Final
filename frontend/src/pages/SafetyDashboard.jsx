@@ -2,20 +2,20 @@ import React, { useCallback, useState } from "react";
 import { SquareStack, DoorOpen, ShieldAlert } from "lucide-react";
 
 import Carro from "../images/Carro.png";
-import { useUsers }          from "../hooks/useUsers";
-import { useToggleSound }    from "../hooks/useToggleSound";
-import { USER_COLORS }       from "../data/users";
-import { MasterToggle }      from "../components/MasterToggle";
-import { LockControlCard }   from "../components/LockControlCard";
-import { SpeedSlider }       from "../components/SpeedSlider";
-import { HistoryPanel }      from "../components/HistoryPanel";
-import { UserSelector }      from "../components/UserSelector";
-import { FacadeDebugPanel }  from "../components/FacadeDebugPanel";
+import { useUsers } from "../hooks/useUsers";
+import { useToggleSound } from "../hooks/useToggleSound";
+import { USER_COLORS } from "../data/users";
+import { MasterToggle } from "../components/MasterToggle";
+import { LockControlCard } from "../components/LockControlCard";
+import { SpeedSlider } from "../components/SpeedSlider";
+import { HistoryPanel } from "../components/HistoryPanel";
+import { UserSelector } from "../components/UserSelector";
+import { FacadeDebugPanel } from "../components/FacadeDebugPanel";
 
 const LOCK_CONTROLS = [
-  { key: "windows",  title: "Ventanas bloqueadas",   icon: SquareStack },
-  { key: "doors",    title: "Puertas bloqueadas",     icon: DoorOpen    },
-  { key: "seatbelt", title: "Cinturón obligatorio",   icon: ShieldAlert },
+  { key: "windows", title: "Ventanas bloqueadas", icon: SquareStack },
+  { key: "doors", title: "Puertas bloqueadas", icon: DoorOpen },
+  { key: "seatbelt", title: "Cinturón obligatorio", icon: ShieldAlert },
 ];
 
 function useToast() {
@@ -32,13 +32,9 @@ export function SafetyDashboard() {
     users, activeUser, activeUserId, selectUser,
     state,
     toggleMaster, toggleControl, setSpeedValue,
-    // Command: undo granular
     canUndo, undoLastAction, undoDescription,
-    // Memento: snapshots
     snapshots, saveSnapshot, restoreSnapshot, deleteSnapshot, clearSnapshots,
-    // Prototype: copia de config entre usuarios
     copyConfigToUser,
-    // Facade: última llamada para el panel visual
     lastAction,
   } = useUsers();
 
@@ -47,9 +43,6 @@ export function SafetyDashboard() {
 
   const colors = USER_COLORS[activeUser.color];
 
-  // ── Wrappers con audio ──────────────────────────────────────────────────
-  // Las llamadas van a Facade → Command → SafetyConfig.
-  // El dashboard no sabe nada de SafetyConfig ni de CommandInvoker.
   const handleToggleMaster = useCallback(() => {
     playMaster(!state.masterOn);
     toggleMaster();
@@ -63,13 +56,11 @@ export function SafetyDashboard() {
     [state, toggleControl, playControl]
   );
 
-  // ── Undo (Command) ──────────────────────────────────────────────────────
   const handleUndo = useCallback(() => {
     const cmd = undoLastAction();
     if (cmd) showToast(`Deshecho: ${cmd.describe()}`);
   }, [undoLastAction, showToast]);
 
-  // ── Memento ─────────────────────────────────────────────────────────────
   const handleSave = useCallback(() => {
     saveSnapshot();
     showToast(`Configuración de ${activeUser.name} guardada`);
@@ -92,7 +83,6 @@ export function SafetyDashboard() {
     clearSnapshots(); showToast("Historial eliminado");
   }, [clearSnapshots, showToast]);
 
-  // ── Prototype ───────────────────────────────────────────────────────────
   const handleCopyConfig = useCallback(
     (targetUserId) => {
       const target = users.find((u) => u.id === targetUserId);
@@ -102,7 +92,6 @@ export function SafetyDashboard() {
     [copyConfigToUser, users, showToast]
   );
 
-  // ── Selección de usuario ────────────────────────────────────────────────
   const handleSelectUser = useCallback(
     (id) => {
       selectUser(id);
@@ -126,7 +115,6 @@ export function SafetyDashboard() {
       <main className="max-w-350 mx-auto w-full px-6 py-8 flex-1">
         <div className="grid grid-cols-1 lg:grid-cols-[240px_1fr_340px] gap-6 items-start">
 
-          {/* ── Columna izquierda: vehículo + usuarios ──────────────── */}
           <aside className="flex flex-col gap-4 lg:sticky lg:top-18">
             <section className="bg-white border border-gray-100 rounded-2xl p-4">
               <p className="text-[11px] font-medium uppercase tracking-widest text-gray-300 mb-3">
@@ -145,7 +133,6 @@ export function SafetyDashboard() {
               <p className="text-[11px] font-medium uppercase tracking-widest text-gray-300 mb-3">
                 Usuarios
               </p>
-              {/* UserSelector recibe onCopyConfig para exponer el Prototype */}
               <UserSelector
                 users={users}
                 activeUserId={activeUserId}
@@ -158,7 +145,6 @@ export function SafetyDashboard() {
             </section>
           </aside>
 
-          {/* ── Columna central: controles ──────────────────────────── */}
           <div className="flex flex-col gap-5">
             <section className="bg-white border border-gray-100 rounded-2xl p-5">
               <p className="text-[11px] font-medium uppercase tracking-widest text-gray-300 mb-3">
@@ -198,7 +184,6 @@ export function SafetyDashboard() {
               />
             </section>
 
-            {/* ── Panel visual Facade ─────────────────────────────────── */}
             <FacadeDebugPanel
               state={state}
               snapshots={snapshots}
@@ -208,7 +193,6 @@ export function SafetyDashboard() {
             />
           </div>
 
-          {/* ── Columna derecha: historial ──────────────────────────── */}
           <aside className="bg-white border border-gray-100 rounded-2xl p-5 lg:sticky lg:top-18">
             <div className="flex items-center gap-2 mb-4 pb-4 border-b border-gray-100">
               <div className={`w-7 h-7 rounded-full flex items-center justify-center text-[11px]
@@ -225,7 +209,6 @@ export function SafetyDashboard() {
               </span>
             </div>
 
-            {/* HistoryPanel recibe canUndo + handlers de Command y Memento */}
             <HistoryPanel
               snapshots={snapshots}
               canUndo={canUndo}

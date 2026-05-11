@@ -47,7 +47,7 @@ export function useToggleSound() {
       source.connect(ctx.destination);
       source.start(0);
     } catch {
-      // Archivo no encontrado o contexto bloqueado 
+      // Archivo no encontrado o contexto bloqueado  
     }
   }
 

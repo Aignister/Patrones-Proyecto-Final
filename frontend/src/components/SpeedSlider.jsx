@@ -22,8 +22,8 @@ export function SpeedSlider({ enabled, disabled, speedValue, onToggle, onSpeedCh
         </div>
 
         <div className="flex-1">
-          <p className="text-sm font-medium text-gray-700">Velocidad máxima</p>
-          <p className="text-xs text-gray-400 mt-0.5">Límite para pasajeros</p>
+          <p className="text-sm font-medium text-gray-700">Velocidad maxima</p>
+          <p className="text-xs text-gray-400 mt-0.5">Limite para pasajeros</p>
         </div>
 
         <div className="text-right">

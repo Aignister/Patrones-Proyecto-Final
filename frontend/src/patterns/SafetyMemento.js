@@ -1,4 +1,3 @@
-// Contador global de perfiles
 let _profileCounter = 0;
 
 export class SafetyMemento {
@@ -31,7 +30,6 @@ export class SafetyMemento {
     return this.#profileNumber;
   }
 
-  // Regresa los perfiles en los labels
   getLabel() {
     return `Perfil ${this.#profileNumber}`;
   }
@@ -40,10 +38,10 @@ export class SafetyMemento {
     const s = this.#state;
     if (!s.masterOn) return "Modo desactivado";
     const parts = [];
-    if (s.windows)  parts.push("Ventanas");
-    if (s.doors)    parts.push("Puertas");
+    if (s.windows) parts.push("Ventanas");
+    if (s.doors) parts.push("Puertas");
     if (s.seatbelt) parts.push("Cinturón");
-    if (s.speed)    parts.push(`Vel. ${s.speedValue} km/h`);
+    if (s.speed) parts.push(`Vel. ${s.speedValue} km/h`);
     return parts.length ? parts.join(" · ") : "Sin restricciones activas";
   }
 }

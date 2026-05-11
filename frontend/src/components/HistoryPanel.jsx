@@ -1,9 +1,6 @@
 import { Save, Trash2, Clock, Undo2 } from "lucide-react";
 import { SnapshotItem } from "./SnapshotItem";
 
-// HistoryPanel ahora expone dos niveles de historial:
-//   1. Undo granular  → deshace la última acción (patrón Command)
-//   2. Snapshots      → restaura perfiles completos (patrón Memento)
 export function HistoryPanel({
   snapshots,
   canUndo,
@@ -17,7 +14,6 @@ export function HistoryPanel({
   return (
     <div className="flex flex-col gap-4">
 
-      {/* ── Encabezado ────────────────────────────────────────────────── */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
           <Clock size={13} className="text-gray-300" />
@@ -32,8 +28,6 @@ export function HistoryPanel({
         )}
       </div>
 
-      {/* ── Botón Undo (Command) ──────────────────────────────────────── */}
-      {/* Solo visible cuando hay acciones en la pila del Invoker */}
       <button
         onClick={onUndo}
         disabled={!canUndo}
@@ -54,7 +48,6 @@ export function HistoryPanel({
           : "Sin acciones para deshacer"}
       </button>
 
-      {/* ── Botón Guardar snapshot (Memento) ─────────────────────────── */}
       <button
         onClick={onSave}
         className="w-full flex items-center justify-center gap-2 px-3 py-2.5 text-sm font-medium
@@ -65,7 +58,6 @@ export function HistoryPanel({
         Guardar configuración actual
       </button>
 
-      {/* ── Lista de snapshots ────────────────────────────────────────── */}
       {snapshots.length === 0 ? (
         <div className="border border-dashed border-gray-100 rounded-xl py-10 text-center flex flex-col items-center gap-2">
           <Clock size={20} className="text-gray-200" />
