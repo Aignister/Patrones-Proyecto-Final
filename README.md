@@ -38,6 +38,7 @@ Memento (Patrón de Comportamiento)
 
 El patrón Memento fue implementado para permitir el almacenamiento y restauración de configuraciones de seguridad previamente guardadas.
 Dentro del sistema, el usuario puede modificar configuraciones del vehículo y posteriormente guardar “snapshots” del estado actual.
+
 Command (Patrón de Comportamiento Adicional) 
 
 El patrón Command fue utilizado para encapsular acciones del sistema como comandos independientes. Esto permitió separar las solicitudes realizadas por el usuario de la lógica real de ejecución. 
@@ -45,6 +46,7 @@ Command complementa correctamente al patrón Facade, ya que los comandos pueden 
 Arquitectura MVC
 
 La arquitectura MVC (Model-View-Controller) fue utilizada para organizar el sistema de manera estructurada y modular.
+
 La separación de responsabilidades permitió dividir el proyecto en:
 Model: manejo de datos, patrones y lógica del sistema.
 View: componentes visuales e interfaz gráfica.
