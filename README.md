@@ -68,6 +68,13 @@ MVC organiza toda la arquitectura general de la aplicación.
 ---
 
 ## Diagramas 
+Diagrama UML de clases
+<img width="1400" height="2687" alt="Diagrama en blanco (13)" src="https://github.com/user-attachments/assets/8d2e0ca4-d327-46b0-a2c9-17c7c7ed79ff" />
+
+
+Diagrama de procesos
+
+<img width="740" height="2300" alt="Diagrama en blanco (14)" src="https://github.com/user-attachments/assets/a27b591a-2d91-413c-9fa8-baea00da5b44" />
 
 ---
 
