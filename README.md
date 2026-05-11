@@ -16,10 +16,11 @@
 ---
 
 ## Introducción
-
-El sistema de seguridad vehicular es una aplicación web desarrollada con React que simula un sistema de configuración de seguridad vehicular orientado al transporte de menores. La idea principal es permitir que el conductor ajuste parámetros como la velocidad máxima, el bloqueo de puertas traseras, los sensores de proximidad y los cinturones de seguridad, todo desde un panel centralizado.
-
-Se implementaron tres patrones Memento, Factory Method y Facade, junto con la arquitectura MVC como estructura base, Cada patrón cumple una función específica: Memento permite guardar y restaurar configuraciones anteriores, Factory Method facilita la creación de perfiles de seguridad predefinidos, y Facade actúa como punto de acceso unificado hacia los distintos subsistemas del vehículo.
+ 
+El presente proyecto consiste en el desarrollo de una aplicación web orientada a la seguridad vehicular, específicamente diseñada para el transporte de menores. La plataforma, construida con React y Vite, permite al conductor configurar parámetros como el bloqueo de ventanas y puertas traseras, la restricción de velocidad máxima y el uso obligatorio del cinturón de seguridad, todo desde un panel centralizado con soporte para múltiples perfiles de usuario.
+ 
+Se implementaron cuatro patrones: **Facade**, **Memento**, **Command** y **Prototype**, complementados con una arquitectura de dos niveles: **arquitectura por capas** como estructura organizacional del proyecto, y **MVC** como patrón arquitectónico de interacción, donde los *hooks* de React asumen el rol híbrido de controlador y modelo al coordinar el estado de la lógica de negocio con la sincronización de las vistas.
+ 
 
 ## Justificacion del Uso de los patrones
 
@@ -71,9 +72,17 @@ MVC organiza toda la arquitectura general de la aplicación.
 ---
 
 ## Conclusión
+ 
+El desarrollo de este sistema permitió verificar de manera práctica cómo los patrones de diseño contribuyen a la legibilidad, mantenibilidad y extensibilidad de una aplicación. Cada patrón cumplió una función claramente delimitada dentro del sistema.
+ 
+El patrón **Facade** resultó fundamental para mantener el dashboard limpio y desacoplado: la vista nunca interactuó directamente con los comandos, el caretaker o el estado de configuración, sino exclusivamente a través de la interfaz de `SafetyFacade`, lo que simplificó las pruebas y la evolución futura del sistema.
+ 
+El patrón **Memento**, distribuido correctamente entre sus tres roles (Originator, Memento y Caretaker), demostró ser una solución sólida para la gestión del historial de perfiles. La inmutabilidad del estado dentro de `SafetyMemento` garantizó que ninguna restauración pudiera comprometer snapshots anteriores, y la separación de responsabilidades entre guardar (Originator), custodiar (Caretaker) y representar (Memento) redujo el acoplamiento entre módulos.
+ 
+El patrón **Command** añadió una capa de reversibilidad que hubiera sido difícil de implementar sin dicha estructura. Encapsular cada acción como un objeto independiente con estado previo permitió implementar el *undo* sin modificar la lógica de negocio central, y el `CommandInvoker` con tamaño máximo de pila evitó problemas de memoria en sesiones prolongadas.
+ 
+El patrón **Prototype** resolvió de forma elegante el caso de uso de copiar configuraciones entre usuarios: en lugar de reconstruir manualmente el estado o acoplar los objetos `SafetyFacade` entre sí, el método `clone()` de `SafetyConfig` generó una copia independiente del estado activo, preservando el aislamiento por perfil.
+ 
+En cuanto a la arquitectura, la división en capas (patrones → hooks → componentes → páginas) estableció una separación de responsabilidades clara y predecible. El enfoque **MVC** instrumentado mediante *hooks* de React resultó especialmente adecuado para este contexto: los hooks actuaron como controladores que orquestan la lógica del modelo y sincronizan el estado hacia las vistas.
+ 
 
-Facade simplificó bastante la comunicación entre la vista y los subsistemas internos, ya que el controlador nunca tuvo que conocer los detalles de cada módulo por separado.
-
-El patrón Memento resultó especialmente útil para manejar el historial.
-
-Factory Method demostró ser una solución limpia para la creación de perfiles de seguridad
