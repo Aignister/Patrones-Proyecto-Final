@@ -1,6 +1,7 @@
 # Sistema de Seguridad Vehicular
 **Instituto Tecnológico de Tijuana**
-<img width="349" height="338" alt="image" src="https://github.com/user-attachments/assets/aca54ba8-5d29-4420-991f-1d09fb778e90" />
+<img width="344" height="339" alt="image" src="https://github.com/user-attachments/assets/48c1dfef-52b6-41f3-b110-7a8a28909abd" />
+
 
 **Materia:** Patrones de Diseño  
 **Docente:** Maribel Guerrero Luis  
