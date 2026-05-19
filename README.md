@@ -87,4 +87,11 @@ El Command fue el que más sencillo para mi, tenemos las diferentes clases que m
 El Memento y el Prototype fueron más directos, pero igual importantes, sin ellos no habría forma limpia de guardar perfiles ni de copiar configuraciones entre usuarios.
 
  
+## Conclusion - Luis Enrique Torres Murillo - 22210361
+
+El programa como tal funciona de forma correcta con la implementacion de cada uno de estos diferentes patrones, cada uno funcion en base a la funcion especifica que se busca lograr dentro del programa,
+los patrones de Memento y Command funcionan de forma que se mantiene el historial y un numero de configuraciones que el usuario puede guardar, mientras que Command facilita el tema del deshacer la configuracion
+de forma sencilla, ya el patron de Prototype permite el copiar una configuracion de forma sencilla, y el de facade permite de forma sencilla la separacion de la interfaz de la parte logica del codigo delegando las llamadas a los patrones por medio de este, y el de arquitectura siendo el de capas y MVC por la estructuracion que se le dio al codigo. De forma de que todos los patrones funcionan de forma correcta juntos y hacen que el funcionamiento del programa sea el correcto.
+
+
 
