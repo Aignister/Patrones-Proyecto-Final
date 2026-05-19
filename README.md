@@ -80,9 +80,9 @@ Diagrama de procesos
 
 ## Conclusión - Gonzalo Cortez Huerta 22210761
 
-El Facade, centraliza los componentes y cualquier cambio pequeño hubiera afectado un montón de archivos.
+El Facade, centraliza los componentes y cualquier cambio pequeño hubiera afectado un montón a los archivos.
 
-El Command fue el que más sencillo para mi, tenemos las diferentes clases que modifican, activan o descativan los botones, activar o desactivar las ventanas, cinturon de seguridad, etc.
+El Command fue el que más sencillo para mi, tenemos las diferentes clases que modifican, activan o descativan los botones, activar o desactivar las ventanas, cinturones de seguridad, etc.
 
 El Memento y el Prototype fueron más directos, pero igual importantes, sin ellos no habría forma limpia de guardar perfiles ni de copiar configuraciones entre usuarios.
 
