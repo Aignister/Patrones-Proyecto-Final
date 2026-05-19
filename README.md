@@ -93,5 +93,11 @@ El programa como tal funciona de forma correcta con la implementacion de cada un
 los patrones de Memento y Command funcionan de forma que se mantiene el historial y un numero de configuraciones que el usuario puede guardar, mientras que Command facilita el tema del deshacer la configuracion
 de forma sencilla, ya el patron de Prototype permite el copiar una configuracion de forma sencilla, y el de facade permite de forma sencilla la separacion de la interfaz de la parte logica del codigo delegando las llamadas a los patrones por medio de este, y el de arquitectura siendo el de capas y MVC por la estructuracion que se le dio al codigo. De forma de que todos los patrones funcionan de forma correcta juntos y hacen que el funcionamiento del programa sea el correcto.
 
-
+## Conclusion - Jose Angel Mojica Fajardo - 22210322
+En conclusión el patron facade nos ayuda a entender los simplificar sistemas complejos usando una clase que controle todo, eso hace que código sea mas fácil de entender.
+En cuanto el prototype sirve para crear copias de los objetos sin tener que hacerlo desde cero. En lo que me parecio util por que el patron nos ahorra tiempo y facilita la reutilización de configuraciones
+El comando organiza las acciones en objetos separados, por lo que es util a tener un código mas ordenado y flexible, también nos permite facilitar al ejecutar o deshacer acciones,
+El patron memento Nos permite guardar y recuperar estados anteriores de un objeto. Es util para funciones como deshacer cambios sin afectar directamente el objeto principal.
+El MVC separa la lógica, la interfaz y el control de aplicación. gracias a eso, el código queda mas ogranizado y es mas fácil de mantener.
+En cuanto el patron de capas La Arquitectura se divide el sistema en partes con funciones especificas, esto ayuda a que el desarrollo sea mas ordenado y facilita hacer cambios sin afectar el sistema.
 
