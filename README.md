@@ -78,18 +78,13 @@ Diagrama de procesos
 
 ---
 
-## Conclusión
- 
-El desarrollo de este sistema permitió verificar de manera práctica cómo los patrones de diseño contribuyen a la legibilidad, mantenibilidad y extensibilidad de una aplicación. Cada patrón cumplió una función claramente delimitada dentro del sistema.
- 
-El patrón **Facade** resultó fundamental para mantener el dashboard limpio y desacoplado: la vista nunca interactuó directamente con los comandos, el caretaker o el estado de configuración, sino exclusivamente a través de la interfaz de `SafetyFacade`, lo que simplificó las pruebas y la evolución futura del sistema.
- 
-El patrón **Memento**, distribuido correctamente entre sus tres roles (Originator, Memento y Caretaker), demostró ser una solución sólida para la gestión del historial de perfiles. La inmutabilidad del estado dentro de `SafetyMemento` garantizó que ninguna restauración pudiera comprometer snapshots anteriores, y la separación de responsabilidades entre guardar (Originator), custodiar (Caretaker) y representar (Memento) redujo el acoplamiento entre módulos.
- 
-El patrón **Command** añadió una capa de reversibilidad que hubiera sido difícil de implementar sin dicha estructura. Encapsular cada acción como un objeto independiente con estado previo permitió implementar el *undo* sin modificar la lógica de negocio central, y el `CommandInvoker` con tamaño máximo de pila evitó problemas de memoria en sesiones prolongadas.
- 
-El patrón **Prototype** resolvió de forma elegante el caso de uso de copiar configuraciones entre usuarios: en lugar de reconstruir manualmente el estado o acoplar los objetos `SafetyFacade` entre sí, el método `clone()` de `SafetyConfig` generó una copia independiente del estado activo, preservando el aislamiento por perfil.
- 
-En cuanto a la arquitectura, la división en capas (patrones → hooks → componentes → páginas) estableció una separación de responsabilidades clara y predecible. El enfoque **MVC** instrumentado mediante *hooks* de React resultó especialmente adecuado para este contexto: los hooks actuaron como controladores que orquestan la lógica del modelo y sincronizan el estado hacia las vistas.
+## Conclusión - Gonzalo Cortez Huerta 22210761
+
+El Facade, centraliza los componentes y cualquier cambio pequeño hubiera afectado un montón de archivos.
+
+El Command fue el que más sencillo para mi, tenemos las diferentes clases que modifican, activan o descativan los botones, activar o desactivar las ventanas, cinturon de seguridad, etc.
+
+El Memento y el Prototype fueron más directos, pero igual importantes, sin ellos no habría forma limpia de guardar perfiles ni de copiar configuraciones entre usuarios.
+
  
 
