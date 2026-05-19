@@ -101,5 +101,5 @@ El patron memento Nos permite guardar y recuperar estados anteriores de un objet
 El MVC separa la lógica, la interfaz y el control de aplicación. gracias a eso, el código queda mas ogranizado y es mas fácil de mantener.
 En cuanto el patron de capas La Arquitectura se divide el sistema en partes con funciones especificas, esto ayuda a que el desarrollo sea mas ordenado y facilita hacer cambios sin afectar el sistema.
 
-##Conclusion - Kevin Omar Alvarez Hernandez - 22210280
+## Conclusion - Kevin Omar Alvarez Hernandez - 22210280
 EL uso de varios patrones de diseño resulto muy util, en este programa para implementar varias funciones codidianas a una problematica comun , El uso de vehiculo de manera responsable,la seguridad de los pasajeros es muy importante, El patron memento se usa como un historial de perfiles, esto nos puede ayudar a saber cuales perfiles fueron los que usaron, El patron Facade oculta la complejidad, Command es para desacer acciones, Prototype para clonar las configuraciones de los perfiles y los ultimos 2 MVC y Arquitectura por capas, se encarga de la organizacion de la interfaz, logica, sonidos, y datos.
